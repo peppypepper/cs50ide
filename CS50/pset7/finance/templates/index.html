@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+        {% for item in transactions %}
+      <th scope="row">{{ symbol }}</th>
+      <td>{{ name }}</td>
+      <td>{{ shares }}</td>
+      <td>{{ price }}</td>
+      <td>{{ total }}</td>
+          {% endfor %}
+    </tr>
+    <tr>
+        <th scope="row">CASH</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ cash }}</td>
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ total }}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

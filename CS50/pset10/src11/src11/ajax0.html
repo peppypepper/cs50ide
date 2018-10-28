@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+//ajax technology allows html to request additional html, as in the case of google map, where when you scroll around,
+// it asks for more images.
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+
+            function quote()
+            {                                                            //a callback function, where you ask for something, keep doing work, when that infomration is available, it will get back to you, so you don't have to wait around for it.
+                $.getJSON("/quote", {symbol: $("#symbol").val()}, function(data) {
+                    alert(data.price);
+                });
+            }
+
+        </script>
+        <title>ajax0</title>
+    </head>
+    <body>
+        <form onsubmit="quote(); return false;">
+            <input autocomplete="off" autofocus id="symbol" placeholder="Symbol" type="text"/>
+            <input type="submit" value="Get Quote"/>
+        </form>
+    </body>
+</html>
