@@ -1,4 +1,4 @@
-public class sllist {
+public class sllistSentinel {
     private class IntNode {
         public int item;
         public IntNode next;
@@ -10,41 +10,39 @@ public class sllist {
     }
 
     //an instance variable, type IntNode, name first
-    private IntNode first;
+    //replace first with sentinel, sentinel carries a random value and always present
+    //the first item, if exists, is at sentinel.next
+    private IntNode sentinel;
     private int size;
 
-    //constructor
-    public sllist(int x) {
-        first = new IntNode(x, null);
+    //constructor, 1 item list
+    public sllistSentinel(int x) {
+        sentinel = new IntNode(15, null);
+        sentinel.next = new IntNode(x, null);
         size = 1;
     }
 
     //constructor of an empty list
-    public sllist() {
-        first = null;
+    public sllistSentinel() {
+        sentinel = new IntNode(15, null);
         size = 0;
     }
 
     //method
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        //whoever used to be in front of the line, now second in line
+        sentinel.next = new IntNode(x, sentinel.next);
         size++;
     }
     //method
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     //method
     public void addLast(int x) {
-        //a fix for the addLast() to an empty list bug
-        //works but not pretty, this is where the sentinel comes in
-        if (first == null) {
-            first = new IntNode(x, null);
-            return;
-        }
-
-        IntNode p = first;
+        //start at the sentinels
+        IntNode p = sentinel;
         while (p.next != null) {
             p = p.next;
         }
@@ -54,7 +52,7 @@ public class sllist {
 
     //method
     public int getLast() {
-        IntNode p = first;
+        IntNode p = sentinel;
         while (p.next != null) {
             p = p.next;
         }
@@ -64,15 +62,9 @@ public class sllist {
 
     //method
     //better to add a size variable to first and update size
-    private static int size(IntNode p) {
-        if(p.next == null) {
-            return 1;
-        }
-        return 1 + size(p.next);
-    }
 
     public int size(){
-        return size(first);
+        return size;
     }
 
     public static void main(String[] args) {

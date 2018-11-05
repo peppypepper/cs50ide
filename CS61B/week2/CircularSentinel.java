@@ -6,6 +6,6 @@
 //when the list is populated, the next pointer obviously points to the next node and the prev pointer points to the
 //previous node.
 
-//at last node however, the next pointer of the last node points back to the sentinel instead of carrying the usual null value.
+//the next pointer of the last node points back to the sentinel instead of carrying the usual null value.
 
 //the prev pointer of sentinel points to the last node of the list
